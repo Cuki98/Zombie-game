@@ -20,6 +20,9 @@ public class LookAtMouse : MonoBehaviour
     }
     public void LookRotation()
     {
+
+        if (!inputManager.IsTouchDown()) return;
+
         //Create a ray from the mouse cursor on screen in the direction of the camera.
         Ray camRay = Camera.main.ScreenPointToRay(inputManager.GetTouchPosition());
         // Create a RaycastHit variable to store information about what was hit by the ray.

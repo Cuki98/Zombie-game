@@ -1523,6 +1523,24 @@ MonoBehaviour:
   weapon: {fileID: 0}
   weaponImage: {fileID: 1029322533}
   ammunitionText: {fileID: 342042774}
+--- !u!1 &336142759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6494922057542613153, guid: 7af425e8f5e3cee48a32619cb9c25a51, type: 3}
+  m_PrefabInstance: {fileID: 6494922057172123095}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &336142773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336142759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c42959ea856709448ae6ecdac6df53e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAnimator: {fileID: 1511741438}
 --- !u!1 &342042772
 GameObject:
   m_ObjectHideFlags: 0
@@ -2636,7 +2654,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6494922057542613164, guid: 7af425e8f5e3cee48a32619cb9c25a51, type: 3}
   m_PrefabInstance: {fileID: 6494922057172123095}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 336142759}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 106de0fa263229a4086c36b30abdbe88, type: 3}
@@ -2647,7 +2665,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6494922057542613163, guid: 7af425e8f5e3cee48a32619cb9c25a51, type: 3}
   m_PrefabInstance: {fileID: 6494922057172123095}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 336142759}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96ecc3948e078b24e944e950be231aa4, type: 3}
@@ -4445,6 +4463,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7995705950739230642, guid: 7af425e8f5e3cee48a32619cb9c25a51, type: 3}
   m_PrefabInstance: {fileID: 6494922057172123095}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1511741438 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 512096894228648733, guid: 7af425e8f5e3cee48a32619cb9c25a51, type: 3}
+  m_PrefabInstance: {fileID: 6494922057172123095}
+  m_PrefabAsset: {fileID: 0}
 --- !u!65 &1511741441
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6125,7 +6148,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.754
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1238705767, guid: 7af425e8f5e3cee48a32619cb9c25a51, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7af425e8f5e3cee48a32619cb9c25a51, type: 3}
 --- !u!114 &6607265731727678745
 MonoBehaviour:

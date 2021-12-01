@@ -15,7 +15,7 @@ public class InputManager : MonoBehaviour
 
     private void OnEnable()
     {
-        touchControls.Enable(); 
+        touchControls.Enable();
     }
 
     private void OnDisable()
@@ -31,8 +31,8 @@ public class InputManager : MonoBehaviour
 
     private void EndTouch(InputAction.CallbackContext ctx)
     {
-        if(!EventSystem.current.IsPointerOverGameObject())
-        touchDown = false;
+        if (!EventSystem.current.IsPointerOverGameObject())
+            touchDown = false;
     }
 
     private void StartTouch(InputAction.CallbackContext ctx)
@@ -47,8 +47,14 @@ public class InputManager : MonoBehaviour
     }
     public Vector3 GetTouchPosition()
     {
-   
+
         return touchControls.Touch.TouchPosition.ReadValue<Vector2>();
+
     }
 
+    public Vector2 GetStickValue()
+    {
+        return touchControls.Touch.Move.ReadValue<Vector2>();
+
+    }
 }
