@@ -22,4 +22,21 @@ public static class Tools
             return false;
         }
     }
+    public static Vector3 CalculateDirection(this Vector3 startPosition, Vector3 target)
+    {
+        return new Vector3() + (target - startPosition).normalized;
+    }
+    public static Color GetColorByHex(string hexValue)
+    {
+        Color newCol;
+        if (ColorUtility.TryParseHtmlString(hexValue, out newCol))
+        {
+            return newCol;
+        }
+        else
+        {
+            Debug.LogError("Color Hex was invalid");
+            return Color.black;
+        }
+    }
 }

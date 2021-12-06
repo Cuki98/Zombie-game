@@ -674,6 +674,11 @@ namespace AdvancedPeopleSystem
             characterSelectedElements.SetSelectedIndex(type,index);
         }
 
+
+        public void SetElementByName(CharacterElementType type, string name)
+        {
+            
+        }
         /// <summary>
         /// Clear character element
         /// </summary>
@@ -764,7 +769,12 @@ namespace AdvancedPeopleSystem
             }
             characterSelectedElements.SetSelectedIndex(CharacterElementType.Hair, index);
         }
+
+
+
+
         private void SetBeardByIndex(int index)
+
         {
             CharacterPart beard = GetCharacterPart("Beard");
 
@@ -1125,6 +1135,7 @@ namespace AdvancedPeopleSystem
         {
             if (File.Exists(path))
             {
+                Debug.Log("Exists");
                 var ext = Path.GetExtension(path);
                 var data = File.ReadAllText(path);
                 

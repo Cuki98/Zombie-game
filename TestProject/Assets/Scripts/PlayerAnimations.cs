@@ -16,6 +16,6 @@ public class PlayerAnimations : MonoBehaviour
     {
         playerAnimator.SetFloat("Direction", inputManager.GetStickValue().x);
         playerAnimator.SetFloat("Speed", transform.forward.z);
-        Debug.Log(transform.forward.z);
+      
     }
 }

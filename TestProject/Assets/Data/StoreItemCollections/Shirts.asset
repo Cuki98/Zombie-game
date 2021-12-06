@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 877abf80ac0ee8f49b25a42c04b3f163, type: 3}
+  m_Name: Shirts
+  m_EditorClassIdentifier: 
+  ClothingType: 1
+  itemCollection:
+  - Iname: 
+    image: {fileID: 21300000, guid: 7972b9fbc9552c243baac8ea7cff5254, type: 3}
+    price: 0
+  - Iname: 
+    image: {fileID: 21300000, guid: 0ce8d46c3c95b3a499a6bf845b04a7a9, type: 3}
+    price: 0
+  - Iname: 
+    image: {fileID: 21300000, guid: ceeb2431eff98bc40936f2f90addb0b2, type: 3}
+    price: 0
+  - Iname: 
+    image: {fileID: 21300000, guid: d2efd4727a3108a4287f29750817b853, type: 3}
+    price: 0
+  - Iname: 
+    image: {fileID: 21300000, guid: ec852f51acdb5fd419d64d3e37eb2a08, type: 3}
+    price: 0
+  - Iname: 
+    image: {fileID: 21300000, guid: a835ef6a3d5509349b372574667fb68b, type: 3}
+    price: 0
+  - Iname: 
+    image: {fileID: 21300000, guid: 257882b3add14904c800ccd352de6540, type: 3}
+    price: 0
+  - Iname: 
+    image: {fileID: 21300000, guid: a7f76a03717b2f845a2e43f7c3793224, type: 3}
+    price: 0
+  - Iname: 
+    image: {fileID: 21300000, guid: af114c6116756e54184a35108b0de69f, type: 3}
+    price: 0
+  - Iname: 
+    image: {fileID: 21300000, guid: fe5809412e526c3459cf72af7bc16b30, type: 3}
+    price: 0
+  - Iname: 
+    image: {fileID: 21300000, guid: 2f5d00c531907e4478c22a3821f2690d, type: 3}
+    price: 0
+  - Iname: 
+    image: {fileID: 21300000, guid: c6e510931ede43046b559248bd6e0020, type: 3}
+    price: 0
+  - Iname: 
+    image: {fileID: 21300000, guid: dbaf1afcb0c060243949655f17887905, type: 3}
+    price: 0
+  - Iname: 
+    image: {fileID: 21300000, guid: 19d23eadd9983e94fa8d7cb028353d5f, type: 3}
+    price: 0
+  - Iname: 
+    image: {fileID: 21300000, guid: fef475c6b834a7b4e8b1fbd7c6541741, type: 3}
+    price: 0

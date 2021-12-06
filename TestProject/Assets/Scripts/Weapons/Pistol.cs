@@ -12,7 +12,7 @@ public class Pistol : Firearm
  
     public override void Shoot()
     {
-        Projectile p_temp = Instantiate(projectile, projectileEjectionPoint.position, projectileEjectionPoint.rotation);
+        Projectile p_temp = ObjectPooler.Instance.SpawnFromPool("NormalBullets", projectileEjectionPoint.position , projectileEjectionPoint.rotation).GetComponent<Projectile>();
         p_temp.SetUp(damageDistributor);
         base.Shoot(); 
     }

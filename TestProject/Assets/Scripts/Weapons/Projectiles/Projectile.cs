@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : MonoBehaviour , IPooledObject
 {
     [HideInInspector]public DamageDistributor distributor;
     public GameObject ImpactParticles;
@@ -10,13 +10,20 @@ public class Projectile : MonoBehaviour
     public float damage = 20;
     public LayerMask mask;
 
-    private void Awake()
+    public void OnSpawn()
     {
-        Destroy(gameObject , 5);
+        StartCoroutine(Sleep(3));
     }
+
     public void SetUp(DamageDistributor distributor)
     {
         this.distributor = distributor;
+    }
+
+    public IEnumerator Sleep(float time)
+    {
+        yield return new WaitForSecondsRealtime(time);
+        gameObject.SetActive(false);
     }
 
     private void Update()
@@ -36,7 +43,7 @@ public class Projectile : MonoBehaviour
                 if(distributor)
                 distributor.DealDamage(health , damage, DamageType.Bullet);
             }
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
