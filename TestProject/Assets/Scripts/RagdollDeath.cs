@@ -8,7 +8,7 @@ using UnityEngine.AI;
 public class RagdollDeath : MonoBehaviour
 {
     HealthComponent healthComponent;
-
+    public GameObject deathParticles;
     private void Awake()
     {
         healthComponent = GetComponent<HealthComponent>();
@@ -46,8 +46,9 @@ public class RagdollDeath : MonoBehaviour
             rigidBodies[i].isKinematic = false;
             colliders[i].isTrigger = false;
         }
-        rigidBodies[0].AddForce(-transform.forward * 1500/2 , ForceMode.Impulse);
+        rigidBodies[UnityEngine.Random.Range(0 , rigidBodies.Length)].AddForce((transform.up * Tools.GetNumberBetween(-1 , 1) )* 700/2 , ForceMode.Impulse);
 
+        Instantiate(deathParticles , transform.position , Quaternion.identity);
     }
 
 

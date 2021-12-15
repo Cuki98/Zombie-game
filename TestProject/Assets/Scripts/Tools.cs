@@ -48,4 +48,13 @@ public static class Tools
             trans.gameObject.layer = layerNumber;
         }
     }
+
+    public static float GetNumberBetween(float  a , float b)
+    {
+       int random = Random.Range(0 , 1);
+
+        if (random == 0) return a;
+        else return b;
+       
+    }
 }
