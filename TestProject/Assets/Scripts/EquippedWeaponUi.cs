@@ -12,8 +12,6 @@ public class EquippedWeaponUi : MonoBehaviour
 
     public WeaponHandler weaponH;
 
-    public Button up;
-    public Button down;
 
 
 
@@ -30,11 +28,11 @@ public class EquippedWeaponUi : MonoBehaviour
     private void Awake()
     {
         weaponH.OnSwitchedWeapon += OnWeaponSwitch;
-        up.onClick.AddListener(() => 
+        previousWeapon.GetComponent<Button>().onClick.AddListener(() => 
         {
             weaponH.SwitchWeapon(true);
         });
-        down.onClick.AddListener(() =>
+        NextWeapon.GetComponent<Button>().onClick.AddListener(() =>
         {
             weaponH.SwitchWeapon(false);
         });

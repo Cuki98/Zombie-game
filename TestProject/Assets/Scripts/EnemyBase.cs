@@ -25,10 +25,10 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void OnDie(object sender, EventArgs e)
     {
-        GetComponent<EnemyPathFinding>().Disable();
-        GetComponent<EnemyPathFinding>().enabled = false;
-        GetComponentInChildren<MeshRenderer>().material.color = Color.grey;
-        LeanTween.moveY(gameObject , transform.position.y - 10 , .5f).setOnComplete(()=> { Destroy(gameObject); });
+        //Destroy(gameObject);
+        // GetComponent<EnemyPathFinding>().Disable();
+        // GetComponent<EnemyPathFinding>().enabled = false;
+        // LeanTween.moveY(gameObject , transform.position.y - 10 , .5f).setOnComplete(()=> { Destroy(gameObject); });
     }
 }
 

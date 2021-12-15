@@ -67,8 +67,7 @@ public class StoreTabHolder : MonoBehaviour
             BuyableClothingItemUi buyableItem = refference.GetComponent<BuyableClothingItemUi>();
 
             if (buyableItem)
-            {
-               
+            {            
                 buyableItem.SetUp(arg0.itemCollection.ClothingType, i);
                 buyableItem.SetItem(arg0.itemCollection.itemCollection[i]);
             }

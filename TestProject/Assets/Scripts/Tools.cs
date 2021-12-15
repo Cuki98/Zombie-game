@@ -39,4 +39,13 @@ public static class Tools
             return Color.black;
         }
     }
+
+    public static void SetLayerRecursively(GameObject go, int layerNumber)
+    {
+        foreach (Transform trans in go.GetComponentsInChildren<Transform>(true))
+        {
+            Debug.Log("Called");
+            trans.gameObject.layer = layerNumber;
+        }
+    }
 }
