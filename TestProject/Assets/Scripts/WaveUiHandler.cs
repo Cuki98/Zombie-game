@@ -15,7 +15,6 @@ public class WaveUiHandler : MonoBehaviour
 
     private void OnWaveStarted(object sender, WaveEventArgs e)
     {
-        Debug.Log("Ended" + e.wave.ToString());
         waveText.text = e.wave.ToString();
     }
 }

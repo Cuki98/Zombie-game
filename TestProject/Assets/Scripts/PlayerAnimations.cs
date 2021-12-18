@@ -12,7 +12,7 @@ public class PlayerAnimations : MonoBehaviour
     {
         inputManager = GetComponent<InputManager>();
     }
-    private void Update()
+    private void Update() 
     {
         playerAnimator.SetFloat("Direction", inputManager.GetStickValue().x);
         playerAnimator.SetFloat("Speed", transform.forward.z);

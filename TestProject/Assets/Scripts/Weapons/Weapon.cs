@@ -16,6 +16,5 @@ public class Weapon : MonoBehaviour
     public virtual void Initialize(GameObject weaponOwner)
     {
         this.weaponOwner = weaponOwner;
-        Debug.Log(weaponOwner);
     }
 }

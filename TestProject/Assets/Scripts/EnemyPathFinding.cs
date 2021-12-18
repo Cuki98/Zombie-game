@@ -9,7 +9,6 @@ using System;
 public class EnemyPathFinding : MonoBehaviour
 {
     private NavMeshAgent agent;
-    public float TriggerDistance;
     private GameObject target;
 
 

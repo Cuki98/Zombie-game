@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
-public class MovementComponent : MonoBehaviour
+public class MovementComponent : MonoBehaviour , IAlive
 {
     [SerializeField] private float walkSpeed;
     [SerializeField] private float sprintMultiplier;
@@ -40,6 +40,11 @@ public class MovementComponent : MonoBehaviour
 
         movementForce = new Vector3(inputs.x, 0, inputs.y) * walkSpeed * Time.deltaTime;
         rig.AddForce(movementForce, ForceMode.Impulse);
+    }
+
+    public void Disable()
+    {
+        enabled = false;
     }
 }
 

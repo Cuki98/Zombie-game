@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloseRangeEnemy : MonoBehaviour
+public class CloseRangeEnemy : EnemyBase
 {
   
 }

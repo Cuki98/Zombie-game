@@ -6,7 +6,7 @@ using System;
 public class HealthComponent : MonoBehaviour
 {
 
-    public GAtribute health;
+    [HideInInspector]public GAtribute health;
     public event EventHandler OnHealthRunOut;
     public event EventHandler<DamageTakenArgs> OnTakeDamage;
 
@@ -16,10 +16,6 @@ public class HealthComponent : MonoBehaviour
     {
         health = GAtribute.SetUpAttribute(gameObject  , AttributeName.health);
         health.OnAttributeDecrease += OnAttributeDecrease;
-    }
-
-    private void Update()
-    {  
     }
     public void TakeDamage(float damage, DamageType dType)
     {

@@ -44,7 +44,6 @@ public static class Tools
     {
         foreach (Transform trans in go.GetComponentsInChildren<Transform>(true))
         {
-            Debug.Log("Called");
             trans.gameObject.layer = layerNumber;
         }
     }

@@ -28,7 +28,7 @@ public class RagdollDeath : MonoBehaviour
 
     private void ActivateRagdoll(object sender, EventArgs e)
     {
-        Debug.Log("Yep activated");
+     
         GetComponent<EnemyPathFinding>().Disable();
         GetComponent<EnemyPathFinding>().enabled = false;
         Destroy(GetComponent<CapsuleCollider>());//.enabled = false;

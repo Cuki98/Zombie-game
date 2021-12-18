@@ -33,7 +33,6 @@ public class WeaponHandler : MonoBehaviour
         //SetUp Firearms
         for (int i = 0; i < loadout.Length; i++)
         {
-            Debug.Log(i);
             loadout[i].Initialize(gameObject);
         }
 
