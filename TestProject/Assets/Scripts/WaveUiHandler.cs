@@ -8,9 +8,17 @@ public class WaveUiHandler : MonoBehaviour
 {
     public WaveHandler waveSystem;
     public Text waveText;
+    public GameObject waveOverScreen;
     private void Awake()
     {
         waveSystem.OnWaveStarted += OnWaveStarted;
+        waveSystem.OnWaveEnded += OnWaveEnded;
+    }
+
+    private void OnWaveEnded(object sender, WaveEventArgs e)
+    {
+        waveOverScreen.SetActive(true);
+        waveOverScreen.GetComponent<Animator>().Play("WaveOver");
     }
 
     private void OnWaveStarted(object sender, WaveEventArgs e)

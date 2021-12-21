@@ -16,7 +16,7 @@ public class PickupHandler : MonoBehaviour
     public AudioClip voiceOver;
     Pickup pickup;
 
-
+    bool pickupActivated = true;
 
     private void Awake()
     {
@@ -30,7 +30,6 @@ public class PickupHandler : MonoBehaviour
     {
         HandlePickup();
     }
-
     public void HandlePickup()
     {
         if (!pickUpFlickering && currentPickUpDuration == 0) currentPickUpDuration = pickupDuration;
@@ -51,7 +50,6 @@ public class PickupHandler : MonoBehaviour
             StartCoroutine("Flicker");
         }
     }
-
     protected IEnumerator Flicker()
     {
         flickeringObject.SetActive(false);
@@ -62,8 +60,19 @@ public class PickupHandler : MonoBehaviour
 
     }
 
+
+    public void ActivatePickup()
+    {
+        pickupActivated = true;
+    }
+    public void DeativatePickUp()
+    {
+        pickupActivated = false;
+    }
+
     private void OnTriggerEnter(Collider other)
-    { 
+    {
+        if (!pickupActivated) return;
         if (other.CompareTag("Player"))
         {
             pickup.OnPickedUp(other.gameObject);

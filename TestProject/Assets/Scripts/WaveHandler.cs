@@ -55,6 +55,8 @@ public class WaveHandler : MonoBehaviour
                     holder.GetAttribute(aName).clampValues.maximum = curveValue;
 
                 holder.GetAttribute(aName).Value = curveValue;
+
+                Debug.Log(aName);
             }
         }
 

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public enum AttributeName 
 {
-    health , stamina
+    health , stamina , speed
 }

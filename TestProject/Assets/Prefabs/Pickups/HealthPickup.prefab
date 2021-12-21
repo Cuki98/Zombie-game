@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 124334038435538337}
   - component: {fileID: 124334038435538338}
   - component: {fileID: 1700993095}
+  - component: {fileID: 7730313401575929738}
   m_Layer: 9
   m_Name: HealthPickup
   m_TagString: Untagged
@@ -80,6 +81,20 @@ MonoBehaviour:
   pickupParticles: {fileID: 152564, guid: 0e4a7fa9fd28f154b91c98ee6fe8ebea, type: 3}
   flickeringObject: {fileID: 970755481204592249}
   pickupSfx: {fileID: 8300000, guid: 2722086750a69aa4289a792be804c60b, type: 3}
+  voiceOver: {fileID: 0}
+--- !u!135 &7730313401575929738
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124334038435538343}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.83
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &124334039036805538
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,6 +185,7 @@ Light:
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!1001 &124334039216403240
@@ -179,6 +195,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 124334038435538336}
     m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 93610d8060e61bc4397e2655c798d4e5, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 93610d8060e61bc4397e2655c798d4e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -192,6 +212,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 93610d8060e61bc4397e2655c798d4e5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 93610d8060e61bc4397e2655c798d4e5, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0.7071068
       objectReference: {fileID: 0}
@@ -202,14 +226,6 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 93610d8060e61bc4397e2655c798d4e5, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 93610d8060e61bc4397e2655c798d4e5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 93610d8060e61bc4397e2655c798d4e5, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 93610d8060e61bc4397e2655c798d4e5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

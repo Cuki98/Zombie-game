@@ -10,7 +10,7 @@ public class EnemyPathFinding : MonoBehaviour
 {
     private NavMeshAgent agent;
     private GameObject target;
-
+    public float maxDistance = 10;
 
 
     private void Awake()
@@ -23,8 +23,14 @@ public class EnemyPathFinding : MonoBehaviour
     {
         agent.SetDestination(transform.position);
     }
+
+    public void SetSpeed(float speed)
+    {
+        agent.speed = speed;
+    }
     private void Update()
     {
+        if(Vector3.Distance(transform.position , target.transform.position) > maxDistance)
         agent.SetDestination(target.transform.position);
     }
 }
