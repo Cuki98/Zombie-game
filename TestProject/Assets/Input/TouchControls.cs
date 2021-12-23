@@ -125,6 +125,14 @@ public class @TouchControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""MouseDown"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""fd117308-d444-4a1c-9903-3029e503e2f6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -204,6 +212,17 @@ public class @TouchControls : IInputActionCollection, IDisposable
                     ""action"": ""MousePosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e512d770-8aef-4a94-a0f4-6db149a342e7"",
+                    ""path"": ""<Mouse>/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -221,6 +240,7 @@ public class @TouchControls : IInputActionCollection, IDisposable
         m_PcMove_Vertical = m_PcMove.FindAction("Vertical", throwIfNotFound: true);
         m_PcMove_Horizontal = m_PcMove.FindAction("Horizontal", throwIfNotFound: true);
         m_PcMove_MousePosition = m_PcMove.FindAction("MousePosition", throwIfNotFound: true);
+        m_PcMove_MouseDown = m_PcMove.FindAction("MouseDown", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -330,6 +350,7 @@ public class @TouchControls : IInputActionCollection, IDisposable
     private readonly InputAction m_PcMove_Vertical;
     private readonly InputAction m_PcMove_Horizontal;
     private readonly InputAction m_PcMove_MousePosition;
+    private readonly InputAction m_PcMove_MouseDown;
     public struct PcMoveActions
     {
         private @TouchControls m_Wrapper;
@@ -337,6 +358,7 @@ public class @TouchControls : IInputActionCollection, IDisposable
         public InputAction @Vertical => m_Wrapper.m_PcMove_Vertical;
         public InputAction @Horizontal => m_Wrapper.m_PcMove_Horizontal;
         public InputAction @MousePosition => m_Wrapper.m_PcMove_MousePosition;
+        public InputAction @MouseDown => m_Wrapper.m_PcMove_MouseDown;
         public InputActionMap Get() { return m_Wrapper.m_PcMove; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -355,6 +377,9 @@ public class @TouchControls : IInputActionCollection, IDisposable
                 @MousePosition.started -= m_Wrapper.m_PcMoveActionsCallbackInterface.OnMousePosition;
                 @MousePosition.performed -= m_Wrapper.m_PcMoveActionsCallbackInterface.OnMousePosition;
                 @MousePosition.canceled -= m_Wrapper.m_PcMoveActionsCallbackInterface.OnMousePosition;
+                @MouseDown.started -= m_Wrapper.m_PcMoveActionsCallbackInterface.OnMouseDown;
+                @MouseDown.performed -= m_Wrapper.m_PcMoveActionsCallbackInterface.OnMouseDown;
+                @MouseDown.canceled -= m_Wrapper.m_PcMoveActionsCallbackInterface.OnMouseDown;
             }
             m_Wrapper.m_PcMoveActionsCallbackInterface = instance;
             if (instance != null)
@@ -368,6 +393,9 @@ public class @TouchControls : IInputActionCollection, IDisposable
                 @MousePosition.started += instance.OnMousePosition;
                 @MousePosition.performed += instance.OnMousePosition;
                 @MousePosition.canceled += instance.OnMousePosition;
+                @MouseDown.started += instance.OnMouseDown;
+                @MouseDown.performed += instance.OnMouseDown;
+                @MouseDown.canceled += instance.OnMouseDown;
             }
         }
     }
@@ -384,5 +412,6 @@ public class @TouchControls : IInputActionCollection, IDisposable
         void OnVertical(InputAction.CallbackContext context);
         void OnHorizontal(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
+        void OnMouseDown(InputAction.CallbackContext context);
     }
 }

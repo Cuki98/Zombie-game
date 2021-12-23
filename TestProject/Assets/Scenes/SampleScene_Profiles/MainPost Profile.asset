@@ -27,10 +27,10 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.357
+    value: 0.398
   smoothness:
     overrideState: 1
-    value: 0.404
+    value: 0.353
   roundness:
     overrideState: 1
     value: 1
@@ -88,7 +88,7 @@ MonoBehaviour:
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 0.457
+    value: 0.536
   fastMode:
     overrideState: 0
     value: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 1.25
+    value: 3.56
   color:
     overrideState: 1
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -131,7 +131,7 @@ MonoBehaviour:
     value: -12
   thicknessModifier:
     overrideState: 1
-    value: 1.72
+    value: 1.26
   directLightingStrength:
     overrideState: 0
     value: 0
@@ -159,22 +159,22 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 2.33
+    value: 9.83
   threshold:
     overrideState: 1
     value: 1.25
   softKnee:
     overrideState: 1
-    value: 0.788
+    value: 0.754
   clamp:
     overrideState: 1
     value: 65472
   diffusion:
     overrideState: 1
-    value: 6.96
+    value: 4.84
   anamorphicRatio:
     overrideState: 1
-    value: 0
+    value: -1
   color:
     overrideState: 1
     value: {r: 1, g: 1, b: 1, a: 1}
@@ -209,10 +209,10 @@ MonoBehaviour:
     value: {x: 17.895676, y: 62.895668}
   minLuminance:
     overrideState: 1
-    value: -0.44
+    value: -0.6
   maxLuminance:
     overrideState: 1
-    value: 4.48
+    value: 0.6
   keyValue:
     overrideState: 1
     value: 1.14
@@ -299,10 +299,10 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 1
-    value: 22.2
+    value: 39
   tint:
     overrideState: 1
-    value: 17.7
+    value: 0
   colorFilter:
     overrideState: 1
     value: {r: 1, g: 1, b: 1, a: 1}
@@ -311,7 +311,7 @@ MonoBehaviour:
     value: 0
   saturation:
     overrideState: 1
-    value: -9.4
+    value: 15
   brightness:
     overrideState: 0
     value: 0
@@ -320,7 +320,7 @@ MonoBehaviour:
     value: 0
   contrast:
     overrideState: 1
-    value: 42.5
+    value: 44
   mixerRedOutRedIn:
     overrideState: 0
     value: 100

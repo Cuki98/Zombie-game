@@ -15,6 +15,7 @@ public class AerealDrop : MonoBehaviour
     private Animator anim;
     public Transform dropSpawnPosition;
     public AudioClip openingSfx;
+    public AudioClip landingSfx;
 
     private bool dropped;
     private bool landed;
@@ -65,6 +66,7 @@ public class AerealDrop : MonoBehaviour
         if (landed) return;
         landingParticles.Play();
         dustParticles.Play();
+        gameObject.ReproduceLocalSound(landingSfx, new SoundManager.SoundSettings(volume: 0.3f));
         landed = true;
     }
 

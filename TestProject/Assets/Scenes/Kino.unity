@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2429,8 +2429,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.51
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -3647,11 +3647,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 622503327929286469, guid: ed552071a4fb6764894619453142320f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 59.3
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 622503327929286469, guid: ed552071a4fb6764894619453142320f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 39.15
+      value: 3.1500015
       objectReference: {fileID: 0}
     - target: {fileID: 622503327929286469, guid: ed552071a4fb6764894619453142320f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3685,6 +3685,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crate
       objectReference: {fileID: 0}
+    - target: {fileID: 625093664585926845, guid: ed552071a4fb6764894619453142320f, type: 3}
+      propertyPath: landingSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: a3841548835f14c4e8fbd8bcf708919d, type: 3}
     - target: {fileID: 625093664585926845, guid: ed552071a4fb6764894619453142320f, type: 3}
       propertyPath: dropGameobject
       value: 
@@ -4861,7 +4865,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -863, y: -461}
+  m_AnchoredPosition: {x: -866, y: -461}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1634536702
@@ -5729,6 +5733,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 124334039036805548, guid: 92af2ecf3043b9d4eb4a89955e81ebf6, type: 3}
+      propertyPath: m_Intensity
+      value: 2.16
+      objectReference: {fileID: 0}
     - target: {fileID: 446701179389793475, guid: 92af2ecf3043b9d4eb4a89955e81ebf6, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.85085654
@@ -5856,8 +5864,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.65882355, g: 0.36616862, b: 0, a: 1}
-  m_Intensity: 3.41
-  m_Range: 7.5
+  m_Intensity: 2.29
+  m_Range: 17.95
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -5931,7 +5939,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6487435311262008572}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.066, y: -0.546, z: -0}
+  m_LocalPosition: {x: -0.066, y: -1.55, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6487435311733203198}
