@@ -9,16 +9,15 @@ public class MovementComponent : MonoBehaviour , IAlive
     [SerializeField] private float walkSpeed;
     [SerializeField] private float sprintMultiplier;
 
-    private PlayerInput playerInput;
+    private InputManager inputManager;
 
-    private float xInput, zInput;
     private Vector2 inputs;
 
     //Components
     private Rigidbody rig;
     private void Awake()
     {
-        playerInput = GetComponent<PlayerInput>();
+        inputManager = GetComponent<InputManager>();
         rig = GetComponent<Rigidbody>();
     }
 
@@ -29,7 +28,7 @@ public class MovementComponent : MonoBehaviour , IAlive
 
     private void GatherInputs()
     {
-        inputs = playerInput.actions["Move"].ReadValue<Vector2>();;
+        inputs = inputManager.GatherMovementInputs();
     }
 
     private void Move()

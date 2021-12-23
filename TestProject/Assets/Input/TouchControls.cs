@@ -97,6 +97,115 @@ public class @TouchControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""PcMove"",
+            ""id"": ""9722b9ae-0449-4ab2-b2d6-d985385f5e8f"",
+            ""actions"": [
+                {
+                    ""name"": ""Vertical"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""85cc79e1-4add-4af2-b993-263850440882"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Horizontal"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""19ecfdfa-762e-4a18-90a8-de7281479964"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""MousePosition"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""0bfbfc84-ee28-4e2b-aedc-32d131c31bac"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""6ab50f13-f030-47b8-b571-96cb6096ddb3"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""bfabd120-fd79-40c2-ac0c-eaa35d664705"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""8bcc3cae-126a-43c0-a85b-a87f9611d17e"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""468b3e94-c649-4cf2-b257-a00315871cb4"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Horizontal"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""02b3476f-770d-4eff-a0ce-974751bca1fc"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Horizontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""a2036e55-b993-4c3e-86df-199129b184ec"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Horizontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9d04b435-3705-4cb1-8a45-b3f7e390e75b"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MousePosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -107,6 +216,11 @@ public class @TouchControls : IInputActionCollection, IDisposable
         m_Touch_TapAction = m_Touch.FindAction("TapAction", throwIfNotFound: true);
         m_Touch_TouchPress = m_Touch.FindAction("TouchPress", throwIfNotFound: true);
         m_Touch_TouchPosition = m_Touch.FindAction("TouchPosition", throwIfNotFound: true);
+        // PcMove
+        m_PcMove = asset.FindActionMap("PcMove", throwIfNotFound: true);
+        m_PcMove_Vertical = m_PcMove.FindAction("Vertical", throwIfNotFound: true);
+        m_PcMove_Horizontal = m_PcMove.FindAction("Horizontal", throwIfNotFound: true);
+        m_PcMove_MousePosition = m_PcMove.FindAction("MousePosition", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -209,11 +323,66 @@ public class @TouchControls : IInputActionCollection, IDisposable
         }
     }
     public TouchActions @Touch => new TouchActions(this);
+
+    // PcMove
+    private readonly InputActionMap m_PcMove;
+    private IPcMoveActions m_PcMoveActionsCallbackInterface;
+    private readonly InputAction m_PcMove_Vertical;
+    private readonly InputAction m_PcMove_Horizontal;
+    private readonly InputAction m_PcMove_MousePosition;
+    public struct PcMoveActions
+    {
+        private @TouchControls m_Wrapper;
+        public PcMoveActions(@TouchControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Vertical => m_Wrapper.m_PcMove_Vertical;
+        public InputAction @Horizontal => m_Wrapper.m_PcMove_Horizontal;
+        public InputAction @MousePosition => m_Wrapper.m_PcMove_MousePosition;
+        public InputActionMap Get() { return m_Wrapper.m_PcMove; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PcMoveActions set) { return set.Get(); }
+        public void SetCallbacks(IPcMoveActions instance)
+        {
+            if (m_Wrapper.m_PcMoveActionsCallbackInterface != null)
+            {
+                @Vertical.started -= m_Wrapper.m_PcMoveActionsCallbackInterface.OnVertical;
+                @Vertical.performed -= m_Wrapper.m_PcMoveActionsCallbackInterface.OnVertical;
+                @Vertical.canceled -= m_Wrapper.m_PcMoveActionsCallbackInterface.OnVertical;
+                @Horizontal.started -= m_Wrapper.m_PcMoveActionsCallbackInterface.OnHorizontal;
+                @Horizontal.performed -= m_Wrapper.m_PcMoveActionsCallbackInterface.OnHorizontal;
+                @Horizontal.canceled -= m_Wrapper.m_PcMoveActionsCallbackInterface.OnHorizontal;
+                @MousePosition.started -= m_Wrapper.m_PcMoveActionsCallbackInterface.OnMousePosition;
+                @MousePosition.performed -= m_Wrapper.m_PcMoveActionsCallbackInterface.OnMousePosition;
+                @MousePosition.canceled -= m_Wrapper.m_PcMoveActionsCallbackInterface.OnMousePosition;
+            }
+            m_Wrapper.m_PcMoveActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Vertical.started += instance.OnVertical;
+                @Vertical.performed += instance.OnVertical;
+                @Vertical.canceled += instance.OnVertical;
+                @Horizontal.started += instance.OnHorizontal;
+                @Horizontal.performed += instance.OnHorizontal;
+                @Horizontal.canceled += instance.OnHorizontal;
+                @MousePosition.started += instance.OnMousePosition;
+                @MousePosition.performed += instance.OnMousePosition;
+                @MousePosition.canceled += instance.OnMousePosition;
+            }
+        }
+    }
+    public PcMoveActions @PcMove => new PcMoveActions(this);
     public interface ITouchActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnTapAction(InputAction.CallbackContext context);
         void OnTouchPress(InputAction.CallbackContext context);
         void OnTouchPosition(InputAction.CallbackContext context);
+    }
+    public interface IPcMoveActions
+    {
+        void OnVertical(InputAction.CallbackContext context);
+        void OnHorizontal(InputAction.CallbackContext context);
+        void OnMousePosition(InputAction.CallbackContext context);
     }
 }

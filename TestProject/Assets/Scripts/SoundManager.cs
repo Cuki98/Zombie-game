@@ -12,6 +12,11 @@ public static class SoundManager
     public class SoundSettings
     {
         public float volume;
+
+        public SoundSettings(float volume)
+        {
+            this.volume = volume;
+        }
     }
 
     public class SoundData
@@ -37,6 +42,9 @@ public static class SoundManager
             activeSounds.Add(gameObject.GetInstanceID(), new SoundData(clip, soundSettings, soundCategory));
         }
         aSource = gameObject.GetComponent<AudioSource>();
+        aSource.spatialBlend = 1;
+        aSource.rolloffMode = AudioRolloffMode.Linear;
+
         aSource.clip = clip;
 
        if (soundSettings!= null)

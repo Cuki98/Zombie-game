@@ -4,9 +4,68 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
+    ///Universal/////////////////
+    public InputType inputType = InputType.pc;
+
+    public Vector2 GatherMovementInputs()
+    {
+        switch (inputType)
+        {
+            case InputType.touch:
+                return GetStickValue();
+                break;
+            case InputType.pc:
+                return GatherAxisInputs();
+                break;
+            case InputType.controller:
+                return Vector2.zero;
+                break;
+            default:
+                return GatherAxisInputs();
+                break;
+        }
+    }
+
+    public Vector2 GatherDirectionalInput()
+    {
+        switch (inputType)
+        {
+            case InputType.touch:
+                return GetTouchPosition();
+                break;
+            case InputType.pc:
+             return GatherMouseInput();
+                break;
+            case InputType.controller:
+                return Vector2.zero;
+                break;
+            default:
+                return Vector2.zero;
+                break;
+        }
+    }
+
+
+    //Pc Controlls///////////////////////////////////////////////////////////
+
+
+
+    private Vector2 GatherAxisInputs()
+    {
+        float h = touchControls.PcMove.Horizontal.ReadValue<float>();
+        float v = touchControls.PcMove.Vertical.ReadValue<float>();
+
+        return new Vector2(h, v);
+    }
+
+    private Vector2 GatherMouseInput()
+    {
+        return touchControls.PcMove.MousePosition.ReadValue<Vector2>();
+    }
+
+    //Touch Controlls//////////////////////////////////////////////////////////
     private TouchControls touchControls;
     private bool touchDown;
-
 
     private void Awake()
     {
@@ -57,4 +116,9 @@ public class InputManager : MonoBehaviour
         return touchControls.Touch.Move.ReadValue<Vector2>();
 
     }
+}
+
+public enum InputType
+{
+    touch, pc, controller
 }

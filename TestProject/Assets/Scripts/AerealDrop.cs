@@ -48,7 +48,8 @@ public class AerealDrop : MonoBehaviour
     {
         anim.SetBool("Open", true);
         opened = true;
-        gameObject.ReproduceLocalSound(openingSfx);
+        
+        gameObject.ReproduceLocalSound(openingSfx , new SoundManager.SoundSettings(volume:0.3f));
         loot.Play();
     }
 

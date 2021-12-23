@@ -10,7 +10,6 @@ public class Firearm : Weapon
     public float damage;
 
     public AudioClip shootSfx;
-    protected AudioSource aSource;
     protected DamageDistributor damageDistributor;
     public CameraShakeSO shootingShake;
 
@@ -42,7 +41,6 @@ public class Firearm : Weapon
 
     public virtual void SetUp()
     {
-        aSource = GetComponentInParent<AudioSource>();
         damageDistributor = weaponOwner.GetComponent<DamageDistributor>();
     }
 
@@ -50,7 +48,7 @@ public class Firearm : Weapon
     {
         lastShotTime = Time.time;
         CameraController.i.shake.AddShake(shootingShake.shakeDuration, shootingShake.shakeAmmount, shootingShake.decreaseFactor);
-        if (aSource) aSource.PlayOneShot(shootSfx);
+        gameObject.ReproduceLocalSound(shootSfx , soundSettings: new SoundManager.SoundSettings(0.2f));
   
     }
 }
