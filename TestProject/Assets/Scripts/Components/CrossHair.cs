@@ -6,10 +6,10 @@ public class CrossHair : MonoBehaviour
 {
     private void Awake()
     {
-       // Cursor.visible = false;
+      Cursor.visible = false;
     }
     void Update()
     {
-     //   transform.position = Input.mousePosition;
+       transform.position = Input.mousePosition;
     }
 }

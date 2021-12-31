@@ -11,6 +11,11 @@ public class CloseRangeAttackManager : MonoBehaviour
     private float attackRate = 1;
     private bool CanAttack { get { return Time.time >= lastAttackTime + attackRate; } }
 
+
+    private void Update()
+    {
+      //  TryPerformAttack(GetComponent<Animator>() , );
+    }
     public void TryPerformAttack(Animator animator , Transform target)
     {
         if (CheckAttack(target) && CanAttack)

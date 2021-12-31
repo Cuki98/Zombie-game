@@ -48,7 +48,7 @@ public class Firearm : Weapon
     {
         lastShotTime = Time.time;
         CameraController.i.shake.AddShake(shootingShake.shakeDuration, shootingShake.shakeAmmount, shootingShake.decreaseFactor);
-        gameObject.ReproduceLocalSound(shootSfx , soundSettings: new SoundManager.SoundSettings(0.2f));
+        transform.parent.gameObject.ReproduceLocalSound(shootSfx , soundSettings: new SoundManager.SoundSettings(0.2f));
   
     }
 }

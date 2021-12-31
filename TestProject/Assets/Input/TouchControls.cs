@@ -128,7 +128,7 @@ public class @TouchControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""MouseDown"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""fd117308-d444-4a1c-9903-3029e503e2f6"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -216,7 +216,7 @@ public class @TouchControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e512d770-8aef-4a94-a0f4-6db149a342e7"",
-                    ""path"": ""<Mouse>/press"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

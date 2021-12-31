@@ -32,7 +32,7 @@ public class WaveUiHandler : MonoBehaviour
     private void OnWaveEnded(object sender, WaveEventArgs e)
     {
         waveOverScreen.SetActive(true);
-        int previousWave = e.wave - 1;
+        int previousWave = e.wave;
         waveOverText.text = "Wave " + previousWave + " survived";
         waveOverQuote.text = quotes[Random.Range(0, quotes.Length)];
         waveOverScreen.GetComponent<Animator>().Play("WaveOver");

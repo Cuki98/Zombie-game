@@ -24,8 +24,13 @@ public class RagdollDeath : MonoBehaviour
             rigidBodies[i].isKinematic = true;
             colliders[i].isTrigger = true;
         }
+    
     }
 
+    private void Start()
+    {
+        
+    }
     private void ActivateRagdoll(object sender, EventArgs e)
     {
      

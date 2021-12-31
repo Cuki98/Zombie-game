@@ -42,7 +42,7 @@ public class EnemyBase : MonoBehaviour
 
     private void Update()
     {
-        attackManager.TryPerformAttack(anim , target.transform);
+       attackManager.TryPerformAttack(anim , target.transform);
     }
     protected virtual void OnDamageTaken(object sender, HealthComponent.DamageTakenArgs e)
     {
@@ -53,10 +53,8 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void OnDie(object sender, EventArgs e)
     {
-        //Destroy(gameObject);
-        // GetComponent<EnemyPathFinding>().Disable();
-        // GetComponent<EnemyPathFinding>().enabled = false;
-        // LeanTween.moveY(gameObject , transform.position.y - 10 , .5f).setOnComplete(()=> { Destroy(gameObject); });
+    
+
     }
 }
 

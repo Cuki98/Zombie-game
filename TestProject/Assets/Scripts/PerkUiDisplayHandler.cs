@@ -57,7 +57,7 @@ public class PerkUiDisplayHandler : MonoBehaviour
         for (int i = 0; i < uiToDataList.Count; i++)
         {
             if (uiToDataList[i].gameObject)
-            uiToDataList[i].gameObject.transform.position = transform.position + new Vector3(i * 100, 0); ;
+            uiToDataList[i].gameObject.transform.position = transform.position + new Vector3(i * 150, 0); ;
         }
     }
     private void OnPerkReknewed(object sender, PerkHandler.PerkHandlerEventArgs e)

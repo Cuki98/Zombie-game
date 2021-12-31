@@ -95,11 +95,16 @@ public class WaveHandler : MonoBehaviour
     }
     public void EndWave()
     {
-        waveActive = false;
-        AdvanceToNextWave();
+        waveActive = false;     
         OnWaveEnded?.Invoke(this , new WaveEventArgs {wave= currentWave });
+        StartCoroutine(WaitForNextWave(5));
     }
 
+    IEnumerator WaitForNextWave(float time)
+    {
+        yield return new WaitForSecondsRealtime(time);
+        AdvanceToNextWave();
+    }
     public int GetCurrentWave()
     {
         return currentWave;

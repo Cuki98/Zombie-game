@@ -16,6 +16,11 @@ public class PlayerAnimations : MonoBehaviour
     {
         playerAnimator.SetFloat("Direction", inputManager.GatherMovementInputs().x);
         playerAnimator.SetFloat("Speed", inputManager.GatherMovementInputs().y);
-      
+
+     //  if(transform.forward.x > 0)
+
+        if(Input.GetMouseButtonDown(1))
+        Debug.Log(transform.forward);
+
     }
 }

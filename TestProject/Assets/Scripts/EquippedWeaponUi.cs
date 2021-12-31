@@ -51,9 +51,6 @@ public class EquippedWeaponUi : MonoBehaviour
 
     private void OnWeaponSwitch(object sender, WeaponHandler.SwitchWeaponArgs e)
     {
-
-
-
         PopulateWeapon();
 
         if (e.Up)

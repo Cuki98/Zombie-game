@@ -9342,4 +9342,4 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 1024
-  triggerAttackDistance: 5
+  triggerAttackDistance: 14.81

@@ -42,8 +42,10 @@ public class WeaponHandler : MonoBehaviour
     }
     private void Update()
     {
-        if(inputManager.IsTouchDown())
+        if(Input.GetMouseButton(0))
         loadout[loadoutIndex].InputCallbacks();
+
+        SwitchWeapon();
     }
     public void GiveWeapon()
     {
@@ -71,9 +73,9 @@ public class WeaponHandler : MonoBehaviour
         activatingWeapon.gameObject.SetActive(true);
     }
     public void SwitchWeapon(bool up)
-    {
-        
+    {    
         if (loadout.Length == 1 || !CanSwitchWeapon) return;
+
         if (!up)
         {
             if (loadoutIndex == loadout.Length - 1)
@@ -96,10 +98,50 @@ public class WeaponHandler : MonoBehaviour
         lastSwitchedTime = Time.time;
         OnSwitchedWeapon?.Invoke(this, new SwitchWeaponArgs {Up=  up });
         EquipWeapon(loadoutIndex);
-
-     
-
     }
+
+
+    public void SwitchWeapon()
+    {
+        if (loadout.Length == 1 || !CanSwitchWeapon) return;
+
+        bool up = false;
+
+        Vector2 wheelDelta = Input.mouseScrollDelta;
+        if (wheelDelta.y == 0) return;
+
+        if (wheelDelta.y < 0)
+        {
+            if (loadoutIndex == loadout.Length - 1)
+            {
+                loadoutIndex = 0;
+            }
+            else loadoutIndex++;
+            up = false;
+        }
+        else if (wheelDelta.y > 0)
+        {
+            if (loadoutIndex == 0)
+            {
+                loadoutIndex = loadout.Length - 1;
+            }
+            else
+                loadoutIndex--;
+
+            up = true;
+        }
+
+
+        lastSwitchedTime = Time.time;
+        OnSwitchedWeapon?.Invoke(this, new SwitchWeaponArgs { Up = up });
+        EquipWeapon(loadoutIndex);
+    }
+
+
+
+
+
+
 
     public Weapon GetEquippedWeapon()
     {

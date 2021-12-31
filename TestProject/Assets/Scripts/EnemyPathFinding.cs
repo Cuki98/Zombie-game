@@ -30,7 +30,7 @@ public class EnemyPathFinding : MonoBehaviour
     }
     private void Update()
     {
-        if(Vector3.Distance(transform.position , target.transform.position) > maxDistance)
-        agent.SetDestination(target.transform.position);
+       // if(Vector3.Distance(transform.position , target.transform.position) > maxDistance)
+       agent.SetDestination(target.transform.position);
     }
 }
