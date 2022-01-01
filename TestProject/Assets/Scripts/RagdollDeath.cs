@@ -29,7 +29,7 @@ public class RagdollDeath : MonoBehaviour
 
     private void Start()
     {
-        
+        ActivateRagdoll(this , EventArgs.Empty);
     }
     private void ActivateRagdoll(object sender, EventArgs e)
     {
