@@ -3443,7 +3443,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 624288378664486589, guid: ed552071a4fb6764894619453142320f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 625093664585926845, guid: ed552071a4fb6764894619453142320f, type: 3}
       propertyPath: landingSfx

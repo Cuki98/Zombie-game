@@ -86,8 +86,15 @@ namespace AdvancedPeopleSystem
             _lodGroup = GetComponent<LODGroup>();
            // RecalculateLOD();
             UpdateSkinnedMeshesOffscreenBounds();
+
+
         }
 
+        private void Start()
+        {
+            List<SavedCharacterData> data = GetSavedCharacterDatas();
+            LoadCharacterFromFile(data[data.Count - 1].path);
+        }
         private void Update()
         {
             AnimationTick();
@@ -1163,6 +1170,8 @@ namespace AdvancedPeopleSystem
                         SetCharacterSetup(setup);
                         Debug.Log(string.Format("Loaded {0} save", path));
                     }
+
+                
                 }
             }
         }

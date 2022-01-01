@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 
 public class BuyableClothingItemUi : MonoBehaviour
@@ -11,7 +12,8 @@ public class BuyableClothingItemUi : MonoBehaviour
     private CharacterElementType clothingType;
     private int clothingIndex;
 
-    private Button button;
+    public UnityAction onButtonClicked = ()=> { };
+    public Button button;
     public void SetItem(ItemCollection item)
     {
         this.item = item;
@@ -23,6 +25,7 @@ public class BuyableClothingItemUi : MonoBehaviour
         clothingIndex = index;
 
     }
+
     private void Awake()
     {
         button = GetComponent<Button>();
@@ -30,6 +33,8 @@ public class BuyableClothingItemUi : MonoBehaviour
         button.onClick.AddListener(() =>
         {
             CharacterDresserHandler.Instance.TemporaryEquip(clothingType , clothingIndex);
+            Debug.Log(onButtonClicked == null);
+            onButtonClicked?.Invoke();
         });
     }
 }

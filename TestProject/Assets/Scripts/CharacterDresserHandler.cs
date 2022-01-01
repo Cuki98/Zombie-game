@@ -2,16 +2,12 @@ using AdvancedPeopleSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 
 public class CharacterDresserHandler : MonoBehaviour
 {
-    public CharacterSettings characterSettings;
-    public CharacterSettings temporaryCharacterSettings;
-
     public CharacterCustomization characterCustomization;
-
-     
 
     public static CharacterDresserHandler Instance;
 
@@ -22,8 +18,8 @@ public class CharacterDresserHandler : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Ran");
-        characterCustomization.LoadCharacterFromFile("Data/Character/appack25");
+        List<SavedCharacterData> data = characterCustomization.GetSavedCharacterDatas();
+        characterCustomization.LoadCharacterFromFile(data[data.Count - 1].path);
     }
 
     public void ResetToDefault()
@@ -33,7 +29,10 @@ public class CharacterDresserHandler : MonoBehaviour
     public void TemporaryEquip(CharacterElementType type, int equip)
     {
         //ResetToDefault();
-        characterCustomization.SetElementByIndex(type, equip);     
+        characterCustomization.SetElementByIndex(type, equip);
+        characterCustomization.ClearSavedData();
+        characterCustomization.SaveCharacterToFile(CharacterCustomizationSetup.CharacterFileSaveFormat.Json);
+        
     }
 
     public void Revert()

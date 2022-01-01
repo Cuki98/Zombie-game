@@ -3,33 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UICharacterRotate : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+
+public class UICharacterRotate : MonoBehaviour
 {
-    public UIControllerDEMO uIController;
+    public GameObject character;
 
     public float mouseRotateCharacterPower = 8f;
 
-    bool toogle = false;
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        toogle = true;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        toogle = false;
-        Cursor.lockState = CursorLockMode.None;
-    }
+    private bool toogle = false;
 
     void Update()
     {
+
+        if (Input.GetMouseButtonDown(2))
+        {
+            toogle = true;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else if (Input.GetMouseButtonUp(2))
+        {
+            toogle = false;
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+
         if (toogle)
         {
-            uIController.CharacterCustomization.transform.localRotation =
-            Quaternion.Euler(uIController.CharacterCustomization.transform.localEulerAngles +
-            (Vector3.up * -Input.GetAxis("Mouse X") * mouseRotateCharacterPower)
-            );
+            character.transform.rotation =
+                Quaternion.Euler(character.transform.eulerAngles +
+                (Vector3.up * -Input.GetAxis("Mouse X") * mouseRotateCharacterPower)
+                );
         }
     }
 
