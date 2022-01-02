@@ -90,11 +90,6 @@ namespace AdvancedPeopleSystem
 
         }
 
-        private void Start()
-        {
-            List<SavedCharacterData> data = GetSavedCharacterDatas();
-            LoadCharacterFromFile(data[data.Count - 1].path);
-        }
         private void Update()
         {
             AnimationTick();
