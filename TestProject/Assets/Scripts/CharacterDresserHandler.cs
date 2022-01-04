@@ -4,24 +4,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+using Photon.Pun;
+using Photon.Realtime;
 
 public class CharacterDresserHandler : MonoBehaviour
 {
+    public bool LoadOnAwake;
+    public bool autoUpdate = true;
     public CharacterCustomization characterCustomization;
 
-    public static CharacterDresserHandler Instance;
+  
 
     private void Awake()
     {
-        Instance = this;
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        List<SavedCharacterData> data = characterCustomization.GetSavedCharacterDatas();
-        characterCustomization.LoadCharacterFromFile(data[data.Count - 1].path);
+        if (LoadOnAwake)
+            LoadCharacter();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            TemporaryEquip(CharacterElementType.Hat , Random.Range(0 , 5));
+        }
+    }
     public void ResetToDefault()
     {
         characterCustomization.ResetAll();
@@ -30,13 +40,44 @@ public class CharacterDresserHandler : MonoBehaviour
     {
         //ResetToDefault();
         characterCustomization.SetElementByIndex(type, equip);
-        characterCustomization.ClearSavedData();
-        characterCustomization.SaveCharacterToFile(CharacterCustomizationSetup.CharacterFileSaveFormat.Json);
+        SaveCharacter();
+        Debug.Log(characterCustomization.name);
         
     }
 
-    public void Revert()
+    public void LoadAll()
     {
-        
+        CharacterDresserHandler[] character = FindObjectsOfType<CharacterDresserHandler>();
+
+        for (int i = 0; i < character.Length; i++)
+        {
+            if (character[i].autoUpdate)
+            {
+                character[i].LoadCharacter();
+            }
+        }
+    }
+    public void LoadCharacter()
+    {
+        if (!characterCustomization) return;
+        PhotonView pv=   GetComponent<PhotonView>();
+
+        if (pv)
+        {
+            if (!pv.IsMine) return;
+            List<SavedCharacterData> data = characterCustomization.GetSavedCharacterDatas();
+            characterCustomization.LoadCharacterFromFile(data[data.Count - 1].path);
+
+        }
+        else
+        {
+            List<SavedCharacterData> data = characterCustomization.GetSavedCharacterDatas();
+            characterCustomization.LoadCharacterFromFile(data[data.Count - 1].path);
+        }
+    }
+    public void SaveCharacter()
+    {
+        characterCustomization.ClearSavedData();
+        characterCustomization.SaveCharacterToFile(CharacterCustomizationSetup.CharacterFileSaveFormat.Json);
     }
 }

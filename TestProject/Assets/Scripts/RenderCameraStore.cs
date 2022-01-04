@@ -6,11 +6,16 @@ using UnityEngine;
 public class RenderCameraStore : MonoBehaviour
 {
     public Transform original;
+
+    [Header("Facial Things")]
     public Transform FaceZoom;
     public Transform shirt;
     public Transform pants;
     public Transform shoes;
 
+
+    public Transform mainLobby;
+    public Transform CharacterDresser;
 
     private Transform target;
 
@@ -50,13 +55,16 @@ public class RenderCameraStore : MonoBehaviour
     public void ResetTarget()
     {
         target = null;
+        LeanTween.cancel(gameObject);
         LeanTween.move(gameObject, original.position, 0.3f).setEaseLinear();
         LeanTween.rotate(gameObject, original.rotation.eulerAngles, 0.3f).setEaseLinear();
     }
 
-    private void SetTarget(Transform target)
+    public void SetTarget(Transform target)
     {
        this.target = target;
+        LeanTween.cancel(gameObject);
+
        LeanTween.move(gameObject, target.position, 0.3f).setEaseLinear();
        LeanTween.rotate(gameObject, target.rotation.eulerAngles, 0.3f).setEaseLinear();
     }

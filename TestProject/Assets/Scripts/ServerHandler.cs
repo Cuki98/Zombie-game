@@ -8,6 +8,8 @@ using Photon.Realtime;
 public class ServerHandler : MonoBehaviourPunCallbacks
 {
     public static Action GetPhotonFriends = delegate { };
+
+    public static Action OnJoinLobby;
     public static Action<Photon.Realtime.Player> OnPlayerJoin;
     public static Action<Photon.Realtime.Player> OnPlayerLeave;
     public static Action OnPersonallyJoinRoom;
@@ -58,12 +60,22 @@ public class ServerHandler : MonoBehaviourPunCallbacks
     {
         Debug.Log("You have connected to a photon lobby");
         GetPhotonFriends?.Invoke();
+        OnJoinLobby?.Invoke();
+        CreatePhotonRoom($"{PhotonNetwork.NickName}'s room");
     }
 
     public void JoinRandomRoom()
     {
+
+        if (PhotonNetwork.InRoom)
+        {
+            PhotonNetwork.LeaveRoom();
+        }
+
         if(PhotonNetwork.IsConnected)
         PhotonNetwork.JoinRandomRoom();
+
+
     }
 
     public override void OnCreatedRoom()

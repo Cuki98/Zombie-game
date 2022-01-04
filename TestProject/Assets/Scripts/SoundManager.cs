@@ -5,6 +5,7 @@ using UnityEngine;
 public static class SoundManager 
 {
     private static Dictionary<float, SoundData> activeSounds = new Dictionary<float, SoundData>();
+    private static GameObject globalSoundPlayer;
     public enum SoundCategory
     {
         music , sfx , voice
@@ -55,8 +56,20 @@ public static class SoundManager
         aSource.Play();
     }
 
-    public static void ReproduceGlobalSound()
+    
+    public static void ReproduceGlobalSound(this GameObject gameobject , AudioClip clip, SoundSettings soundSettings = null, SoundCategory soundCategory = SoundCategory.sfx)
     {
-       
+        AudioSource audio= null;
+        if (globalSoundPlayer == null)
+        {
+            globalSoundPlayer = new GameObject("Global Sound Manager");
+            audio = globalSoundPlayer.AddComponent<AudioSource>();
+        }
+        else
+        {
+            audio = globalSoundPlayer.GetComponent<AudioSource>();
+        }
+
+        audio.PlayOneShot(clip);
     }
 }

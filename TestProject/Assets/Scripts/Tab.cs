@@ -15,16 +15,17 @@ public class Tab : MonoBehaviour
     {
         background = transform.Find("Background").GetComponent<Image>();
         GetComponent<Button>().onClick.AddListener(()=> { Select();});
+        background.color = Tools.GetColorByHex("#5E5E5E");
     }
     public void Select()
     {
-        background.color = Tools.GetColorByHex("#6A6A6A");
+        background.color = Tools.GetColorByHex("#00CFFF");
         selected = true;
         OnTabSelected?.Invoke(this);
     }
     public void Deselect()
     {
-        background.color = Tools.GetColorByHex("#353535");
+        background.color = Tools.GetColorByHex("#5E5E5E");
         selected = false;
     }
 

@@ -10,6 +10,7 @@ public class UIStoreHandler : MonoBehaviour
     public Transform tabHolder;
     public Transform itemHolder;
     public GameObject itemRefference;
+    public GameObject backButton;
     public CharacterDresserHandler characterDresser;
     public RenderCameraStore renderCamera;
 
@@ -30,6 +31,12 @@ public class UIStoreHandler : MonoBehaviour
         {
             tabs[i].OnTabSelected += OnTabSelected;
         }
+
+        backButton.GetComponent<Button>().onClick.AddListener(() =>
+        {
+            characterDresser.LoadAll();
+        });
+
     }
 
     private void OnTabSelected(Tab arg0)
@@ -48,7 +55,9 @@ public class UIStoreHandler : MonoBehaviour
 
         selectedTab = arg0;
 
-        if(!itemHolder.gameObject.activeSelf)
+        renderCamera.SetTarget(arg0.itemCollection.ClothingType);
+
+        if (!itemHolder.gameObject.activeSelf)
         itemHolder.gameObject.SetActive(true);
 
         if (itemHolder.childCount != 1)
@@ -79,11 +88,17 @@ public class UIStoreHandler : MonoBehaviour
 
             BuyableClothingItemUi buyableItem = refference.GetComponent<BuyableClothingItemUi>();
 
+            buyableItem.gameObject.AddComponent<LobbyButtonAnimations>();
             if (buyableItem)
             {            
                 buyableItem.SetUp(arg0.itemCollection.ClothingType, i);
                 buyableItem.SetItem(arg0.itemCollection.itemCollection[i]);
-                buyableItem.onButtonClicked += () => { renderCamera.SetTarget(arg0.itemCollection.ClothingType); };
+                    Debug.Log(i);
+                buyableItem.onButtonClicked.AddListener
+                (()=>
+                {
+                    characterDresser.TemporaryEquip(arg0.itemCollection.ClothingType, i - 1);
+                });
             }
             refference.SetActive(true);
         }

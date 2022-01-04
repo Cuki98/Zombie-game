@@ -12,7 +12,7 @@ public class BuyableClothingItemUi : MonoBehaviour
     private CharacterElementType clothingType;
     private int clothingIndex;
 
-    public UnityAction onButtonClicked = ()=> { };
+    public UnityEvent onButtonClicked;
     public Button button;
     public void SetItem(ItemCollection item)
     {
@@ -32,7 +32,6 @@ public class BuyableClothingItemUi : MonoBehaviour
 
         button.onClick.AddListener(() =>
         {
-            CharacterDresserHandler.Instance.TemporaryEquip(clothingType , clothingIndex);
             Debug.Log(onButtonClicked == null);
             onButtonClicked?.Invoke();
         });
