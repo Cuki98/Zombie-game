@@ -94,10 +94,12 @@ public class UIStoreHandler : MonoBehaviour
                 buyableItem.SetUp(arg0.itemCollection.ClothingType, i);
                 buyableItem.SetItem(arg0.itemCollection.itemCollection[i]);
                     Debug.Log(i);
+
+                int tempI = i;
                 buyableItem.onButtonClicked.AddListener
                 (()=>
                 {
-                    characterDresser.TemporaryEquip(arg0.itemCollection.ClothingType, i - 1);
+                    characterDresser.TemporaryEquip(arg0.itemCollection.ClothingType, tempI);
                 });
             }
             refference.SetActive(true);
